@@ -26,7 +26,8 @@ class Kategoricontroller extends Controller
     public function savedatabaru(Request $request){
         $request->validate(
             [
-                "kodekategori"=> "required|min:3|max:4|unique:tbl_kategori,kodekategori"
+                "kodekategori"=> "required|min:3|max:4|unique:tbl_kategori,kodekategori",
+                "namakategori"=> "required|min:3|max:30"
             ],
             [
                 "kodekategori.required"=> "Kode Kategori Harus di isi",
@@ -42,6 +43,42 @@ class Kategoricontroller extends Controller
                 "namakategori"=>$request->namakategori
             ]
         );
+        return redirect(url('kategoriproduk'));
+    }
+
+    public function editkategori($id){
+        $datakategori = Kategoriproduk::find($id);
+        $param = [
+            "title" => "Edit Kategori",
+            "datakategori" => $datakategori
+        ];
+        return view ('editkategori',$param);
+    }
+
+    public function saveeditkategori(Request $request){
+        $request->validate(
+            [
+                "kodekategori"=> "required|min:3|max:4",
+                "namakategori"=> "required|min:3|max:30"
+            ],
+            [
+                "kodekategori.min"=> "Input minimal 3 karakter",
+                "kodekategori.max"=> "Input maksimal 4 karakter",
+                "kodekategori.unique"=> "Kode Kategori sudah terdaftar",
+            ]
+        );
+
+        $databaru = [
+            "kodekategori" => $request->kodekategori,
+            "namakategori" => $request->namakategori
+        ];
+
+        Kategoriproduk::where('id', $request->id)->update($databaru);
+        return redirect(url('kategoriproduk'));
+    }
+
+    public function hapuskategori(Request $request){
+        Kategoriproduk::destroy($request->id);
         return redirect(url('kategoriproduk'));
     }
 }

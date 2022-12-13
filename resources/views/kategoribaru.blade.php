@@ -15,7 +15,8 @@
         </div>
         <div class="mb-3">
             <label for="namakategori" class="form-label">Nama Kategori</label>
-            <input type="text" class="form-control" name="namakategori" placeholder="Masukan Nama Kategori">
+            <input type="text" class="form-control @error('namakategori') is-invalid @enderror" value="{{old ('namakategori')}}" name="namakategori" placeholder="Masukan Nama Kategori">
+            @error ('namakategori')<div class="invalid-feedback"> {{$message}} </div> @enderror
         </div>
       </div>
       <button type="submit" class="btn btn-dark">Tambah Kategori</button>

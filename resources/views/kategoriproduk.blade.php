@@ -24,7 +24,7 @@
                     <td scope="row">{{ $baris++ }}</td>
                     <td>{{$kategori->kodekategori}}</td>
                     <td>{{$kategori->namakategori}}</td>
-                    <td></td>
+                    <td><a href="{{url('editkategori')}}/{{$kategori->id}}"><button type="button" class="btn btn-warning btn-sm">Edit Data</button></a></td>
                 </tr>
             </tbody>
              @endforeach
