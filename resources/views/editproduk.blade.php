@@ -36,9 +36,12 @@
             @error ('jmlstok')<div class="invalid-feedback"> {{$message}} </div> @enderror
         </div>
         <div class="mb-3">
-            <label for="kategoriid" class="form-label">Kategori ID</label>
-            <input type="text" class="form-control @error('kategoriid') is-invalid @enderror" value="{{old ('kategoriid', $dataproduk->kategoriid)}}" name="kategoriid" placeholder="Masukan Kategori ID">
-            @error ('kategoriid')<div class="invalid-feedback"> {{$message}} </div> @enderror
+            <select name="kategoriid" class="form-select" aria-label="Default select example">
+                <option>Pilih kategori</option>
+                @foreach ($daftarkategori as $kategori)
+                    <option value="{{ $kategori->id}}" {{ $dataproduk->kategoriid==$kategori->id ? 'selected' : ''}}>{{ $kategori->namakategori}}</option>
+                @endforeach
+            </select>
         </div>
       </div>
       <button type="submit" class="btn btn-dark">Edit produk</button>

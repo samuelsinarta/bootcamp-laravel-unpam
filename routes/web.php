@@ -4,6 +4,7 @@ use App\Http\Controllers\Profilecontroller;
 use App\Http\Controllers\Kategoricontroller;
 use App\Http\Controllers\Daftarproduk;
 use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\Login;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,3 +33,6 @@ Route::post('daftarproduk', [Daftarproduk::class,'savedatabaru']);
 Route::get('editproduk/{id}', [Daftarproduk::class,'editproduk']);
 Route::patch('daftarproduk', [Daftarproduk::class,'saveeditproduk']);
 Route::delete('daftarproduk', [Daftarproduk::class,'hapusproduk']);
+Route::get('daftarproduk/laporan', [Daftarproduk::class,'cetakpdf']);
+Route::get('login', [Login::class,'index']);
+Route::post('login', [Login::class,'signin']);

@@ -116,6 +116,12 @@
               Daftar Produk
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url ('daftarproduk/laporan') }}">
+              <span data-feather="file" class="align-text-bottom"></span>
+              Laporan Produk
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

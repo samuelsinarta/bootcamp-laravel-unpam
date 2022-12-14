@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Kategoriproduk;
 use App\Models\Produkmodel;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -44,6 +45,15 @@ class DatabaseSeeder extends Seeder
         );
 
         Produkmodel::factory(50)->create();
+
+        User::create([
+            "name"=>"samuel",
+            "email"=>"samuelsinarta@gmail.com",
+            "password"=>bcrypt("123"),
+            "isadmin"=>true
+        ]);
+
+        User::factory(10)->create();
 
     }
 }

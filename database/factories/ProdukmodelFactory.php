@@ -17,7 +17,7 @@ class ProdukmodelFactory extends Factory
     public function definition()
     {
         return [
-            "kodeproduk" => $this->faker->numerify('####'),
+            "kodeproduk" => $this->faker->unique()->numerify('####'),
             "namaproduk" => $this->faker->words(2,true),
             "harga"      => $this->faker->numerify('###000'),
             "jmlstok"    => $this->faker->numberBetween(10,100),
