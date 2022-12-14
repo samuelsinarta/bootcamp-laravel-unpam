@@ -9,9 +9,10 @@ use PDF;
 class Daftarproduk extends Controller
 {
     public function index(){
-        $data = Produkmodel::orderBy('kategoriid','asc')->paginate(10);
+        $data = Produkmodel::orderBy('kategoriid','asc')->filter(request('namaproduk'))->paginate(10);
         $param = [
             "title" => "Daftar Produk",
+            "modulename"=> "produk",
             "daftarproduk" => $data,
         ];
 

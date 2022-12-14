@@ -21,4 +21,10 @@ class Produkmodel extends Model
     public function kategori(){
         return $this->belongsTo(Kategoriproduk::class,'kategoriid','id');
     }
+
+    public function scopeFilter($query,$filter){
+        if ($filter){
+            return $query->where('namaproduk','like','%'.request('namaproduk').'%');
+        }
+    }
 }

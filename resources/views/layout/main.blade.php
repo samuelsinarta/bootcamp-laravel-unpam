@@ -82,7 +82,7 @@
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
+      <a class="nav-link px-3" href="{{url('login/logout')}}">Sign out</a>
     </div>
   </div>
 </header>
@@ -99,19 +99,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url ('profile') }}">
+            <a class="nav-link {{$modulename=='profile' ? 'active' : ''}}" href="{{ url ('profile') }}">
               <span data-feather="file" class="align-text-bottom"></span>
               Profile
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url ('kategoriproduk') }}">
+            <a class="nav-link {{$modulename=='kategoriproduk' ? 'active' : ''}}" href="{{ url ('kategoriproduk') }}">
               <span data-feather="file" class="align-text-bottom"></span>
               Kategori Produk
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url ('daftarproduk') }}">
+            <a class="nav-link {{$modulename=='produk' ? 'active' : ''}}" href="{{ url ('daftarproduk') }}">
               <span data-feather="file" class="align-text-bottom"></span>
               Daftar Produk
             </a>

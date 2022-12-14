@@ -9,7 +9,7 @@ class Profilecontroller extends Controller
     public function index(){
     $param = [
         "title" => "Halaman Profile",
-        "modulName" => "profile",
+        "modulename" => "profile",
     ];
     
         return view ('profile' , $param);

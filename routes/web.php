@@ -18,10 +18,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [Homecontroller::class,'index']);
-Route::get('profile', [Profilecontroller::class,'index']);
-Route::get('kategoriproduk', [Kategoricontroller::class,'index']);
+Route::get('/', [Homecontroller::class,'index'])->middleware('auth');
+Route::get('profile', [Profilecontroller::class,'index'])->middleware('auth');
+Route::get('kategoriproduk', [Kategoricontroller::class,'index'])->middleware('admin');
 Route::get('addkategori', [Kategoricontroller::class,'databaru']);
 Route::post('kategoriproduk', [Kategoricontroller::class,'savedatabaru']);
 Route::get('editkategori/{id}', [Kategoricontroller::class,'editkategori']);
@@ -36,3 +35,4 @@ Route::delete('daftarproduk', [Daftarproduk::class,'hapusproduk']);
 Route::get('daftarproduk/laporan', [Daftarproduk::class,'cetakpdf']);
 Route::get('login', [Login::class,'index']);
 Route::post('login', [Login::class,'signin']);
+Route::get('login/logout', [Login::class,'logout']);

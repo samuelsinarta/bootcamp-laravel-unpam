@@ -10,7 +10,7 @@ class Kategoricontroller extends Controller
     public function index(){
         $param = [
             "title" => "Kategori Produk",
-            "modulName" => "kategoriproduk",
+            "modulename" => "kategoriproduk",
             "daftarkategori"=> Kategoriproduk::all(),
         ];
             return view ('kategoriproduk' , $param);
