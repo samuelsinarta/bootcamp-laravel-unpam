@@ -22,6 +22,7 @@ class Daftarproduk extends Controller
     public function databaru(){
         $param = [
             "title" => "Menambah Produk Baru",
+            "modulename"=> "produk",
             "daftarkategori" => Kategoriproduk::all(),
         ];
         return view ('produkbaru',$param);

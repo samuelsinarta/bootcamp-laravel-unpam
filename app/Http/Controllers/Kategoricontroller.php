@@ -18,7 +18,8 @@ class Kategoricontroller extends Controller
 
     public function databaru(){
         $param = [
-            "title" => "Menambah Kategori Baru"
+            "title" => "Menambah Kategori Baru",
+            "modulename" => "kategoriproduk",
         ];
         return view ('kategoribaru',$param);
     }
@@ -50,6 +51,7 @@ class Kategoricontroller extends Controller
         $datakategori = Kategoriproduk::find($id);
         $param = [
             "title" => "Edit Kategori",
+            "modulename" => "kategoriproduk",
             "datakategori" => $datakategori
         ];
         return view ('editkategori',$param);
